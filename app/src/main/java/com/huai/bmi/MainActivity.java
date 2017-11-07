@@ -5,15 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    String s = new String("123");
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
 
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button bHelp = (Button) findViewById(R.id.b_help);
+        bHelp.setOnClickListener();
+   //     getResources().getString(R.string.app_name);
     }
     public void bmi(View view){
    //     System.out.println("what??");     sout(快速鍵印出system.out.println)
@@ -24,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(edheight.getText().toString());
         float bmi = weight / (height * height);
         new AlertDialog.Builder(this)
-                .setMessage("Your BMI is " + bmi)
-                .setTitle("My title")
-                .setPositiveButton("OK", null)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)  //後面有加其餘字串，不可直接用R.string.your_bmi_is，須加getString
+                .setTitle(R.string.my_title)
+                .setPositiveButton(R.string.ok, null)
                 .show();
 
        /* Log.d("MainActivity" , "Your bmi is"+ bmi);
