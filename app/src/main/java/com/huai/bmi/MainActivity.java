@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     String s = new String("123");
+
     /*View.OnClickListener listener = new View.OnClickListener() {
        @Override
         public void onClick(View view) {
@@ -43,17 +44,17 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(edheight.getText().toString());
         float bmi = weight / (height * height);
 
-        if (bmi<20) {
+
+
             new AlertDialog.Builder(this)
-                    .setMessage(bmi+ "請多吃點")  //後面有加其餘字串，不可直接用R.string.your_bmi_is，須加getString
+                    .setMessage(getString(R.string.your_bmi_is)+bmi)  //後面有加其餘字串，不可直接用R.string.your_bmi_is，須加getString
                     .setTitle(R.string.my_title)
                     .setPositiveButton(R.string.ok, null)
                     .show();
-        }
-        /*if(bmi<20) {
+
+       /* if(bmi<20) {
             new AlertDialog.Builder(this)
-                    .setMessage("請多吃點")
-                    .setMessage("Your bmi is" + bmi)
+                    .setMessage(bmi+"請多吃點")
                     .setPositiveButton("OK", null)
                     .show();
 
